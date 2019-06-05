@@ -62,3 +62,31 @@ function findById(items, idNum) {
     return element.id === idNum;
   });
 }
+
+
+function validateKeys(object, expectedKeys) {
+  // your code goes here
+  if(expectedKeys.length !== Object.keys(object).length){
+    return false;
+  }
+
+
+
+
+  for(var property in object){
+
+    console.log(property)
+
+    // console.log(expectedKeys.includes(property));
+
+    if(expectedKeys.includes(property) === true){
+      return true;
+    } else if (expectedKeys.includes(property) === false){
+      return false;
+    } 
+
+  }
+
+
+
+}
