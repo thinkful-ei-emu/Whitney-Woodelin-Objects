@@ -77,15 +77,23 @@ var storage = [
  
  {
    name: 'Sam',
-   jobTitle: 'Graphic Designer'
+   jobTitle: 'Graphic Designer',
+   boss: 'Clint'
  },
  
  {
    name: 'Whitney',
-   jobTitle: 'Teacher'
+   jobTitle: 'Teacher',
+   boss: 'Clint'
  }
 ];
 
+
+
 for(let i = 0; i < storage.length; i++){
- console.log(storage[i]);
+if(storage[i].hasOwnProperty('boss')) {
+  console.log(`${storage[i].jobTitle} ${storage[i].name} reports to ${storage[i].boss}.`);
+} else
+ console.log(`${storage[i].jobTitle} ${storage[i].name} doesn't report to anybody.`);
 }
+
