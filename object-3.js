@@ -22,3 +22,30 @@ const loaf = {
 
 console.log(loaf.flour, loaf.water);
 console.log(loaf.hydration());
+
+
+var obj = {
+  foo: 'foo',
+  bar: 'bar',
+  fum: 'fum',
+  quux: 'quux',
+  spam: 'spam'
+}
+
+for(var propery in obj){
+  console.log(Object.value);
+}
+
+var obj = {
+  foo: 'foo',
+  bar: 'bar',
+  fum: 'fum',
+  quux: 'quux',
+  spam: 'spam'
+}
+
+for(var property in obj){
+  const value = obj[property];
+  const key = property;
+  console.log(key,value);
+}
