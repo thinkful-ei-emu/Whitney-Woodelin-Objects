@@ -122,3 +122,13 @@ function decode(string) {
 }
 decode('craft block argon meter bells brown croon droop');
 // ---------
+
+var cipher = {
+
+
+
+}
+
+function decode(){
+  
+}
