@@ -60,3 +60,32 @@ const hobbitMeals = {
 };
 
 console.log(hobbitMeals.meals[3]);
+
+
+// Create 3-5 objects, each with a name and a jobTitle
+
+
+
+
+var storage = [
+
+  {
+   name: 'Clint',
+   jobTitle: 'Director'
+ },
+ 
+ 
+ {
+   name: 'Sam',
+   jobTitle: 'Graphic Designer'
+ },
+ 
+ {
+   name: 'Whitney',
+   jobTitle: 'Teacher'
+ }
+];
+
+for(let i = 0; i < storage.length; i++){
+ console.log(storage[i]);
+}
