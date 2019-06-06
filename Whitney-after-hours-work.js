@@ -67,7 +67,9 @@ decode('craft block argon meter bells brown croon droop');
 
 // Factory Functions with LOTR
 
-// Write a factory function called createCharacter (review in this assignment) that could appropriately build characters from LOTR that have the following attributes: (see drill for table)
+// Write a factory function called createCharacter (review in this assignment) that could appropriately build characters from LOTR that have the following attributes: (see drill for table); Each character should have the method 'describe' which takes no parameters and prints out the string: '{name} is a {race} from {origin}.'
+//Each character should also have a method called evaluateFight...
+
 
 function createCharacter(name, nickname, race, origin, attack, defense) {
   return {
@@ -97,6 +99,42 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
 
   };
 }
-const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', '8', '5');
-const aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', '6', '8');
-console.log(legolas.evaluateFight(aragorn));
+
+//console.log(characters);
+//console.log(characters[0].name);
+//const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', '8', '5');
+//const aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', '6', '8');
+//console.log(legolas.evaluateFight(aragorn));
+
+// Using array literal syntax, create an array 'characters' that calls your factory function for each character in the table above with the relevant parameters.  Your 'characters array should now have 5 objects in it.
+//Add a new character to 'characters' => 'arwen'
+const characters = [
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', '6', '8'), 
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', '8', '5'),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', '3', '2'),
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', '2', '1'),
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', '10', '6'),
+  createCharacter('Arwen Undomiel', 'arwen', 'Elf', 'Rivendell', '10', '10')
+];
+
+// Using the .find() function, retrieve your character nicknamed 'aragorn' from 'characters' and then call his 'describe' method.
+characters.forEach(function(character) {
+  if(character.nickname === 'aragorn') {
+    return character.describe();
+  }
+});
+
+// Using the .filter() function, create a new array from 'characters' that ONLY contains characters of the race 'Hobbit'
+const hobbits = characters.filter(character => {
+  //console.log(character.race);
+  return character.race === 'Hobbit';
+});
+//console.log(hobbits);
+
+// Using the .filter() function, create a new array from 'characters' that ONLY contains characters with attack value above 5.
+const attackers = characters.filter(character => {
+  return character.attack > 5;
+});
+console.log(attackers);
+// What if you wanted to equip a weapon for each character and change how they are described? ... (see drill text)
+
