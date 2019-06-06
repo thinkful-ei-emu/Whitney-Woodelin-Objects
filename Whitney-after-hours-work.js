@@ -137,3 +137,48 @@ const attackers = characters.filter(character => {
 });
 //console.log(attackers);
 
+
+// BONUS: A Database Search
+// const HEROES = [
+//   { id: 1, name: 'Captain America', squad: 'Avengers' },
+//   { id: 2, name: 'Iron Man', squad: 'Avengers' },
+//   { id: 3, name: 'Spiderman', squad: 'Avengers' },
+//   { id: 4, name: 'Superman', squad: 'Justice League' },
+//   { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+//   { id: 6, name: 'Aquaman', squad: 'Justice League' },
+//   { id: 7, name: 'Hulk', squad: 'Avengers' },
+// ];
+
+// // Write a function findOne() that takes in the following two arguments: (1) arr - array of Heroes objects to search through, (2) query - object with one or more key/value pairs that must exactly match the target Hero
+// // The first matching result should be returned even if multiple match.  If a match isn't found, return 'null'
+// function findOne(arr, query) {
+//   let found = false;
+
+//   HEROES.forEach(hero => {
+//     if(found === false) {
+      
+//       let heroKeys = Object.keys(hero);
+//       let heroValues = Object.values(hero);
+
+//      // console.log(heroValues);
+//       for(let query in heroKeys) {
+//         console.log(query);
+//         return query;
+//       }
+//       if(query.key === heroKeys) {
+//         found = true;
+//         return hero;
+//       }
+//     }
+//   });
+// }
+
+
+// Tests from drill page
+//findOne(HEROES, { id: 1 }); // expected: { id: 1, name: 'Captain America', squad: 'Avengers' }
+//findOne(HEROES, { id: 10 }); // null
+//findOne(HEROES, { id: 2, name: 'Aquaman' }); // null
+//findOne(HEROES, { id: 5, squad: 'Justice League' }); // { id: 5, name: 'Wonder Woman', squad: 'Justice League' }
+//findOne(HEROES, { squad: 'Justice League' }); // { id: 4, name: 'Superman', squad: 'Justice League' }
+
+//console.log(findOne(HEROES, { id: 1 }));
