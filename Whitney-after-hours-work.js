@@ -135,6 +135,5 @@ const hobbits = characters.filter(character => {
 const attackers = characters.filter(character => {
   return character.attack > 5;
 });
-console.log(attackers);
-// What if you wanted to equip a weapon for each character and change how they are described? ... (see drill text)
+//console.log(attackers);
 
