@@ -135,7 +135,7 @@ const hobbits = characters.filter(character => {
 const attackers = characters.filter(character => {
   return character.attack > 5;
 });
-//console.log(attackers);
+console.log(attackers);
 
 
 // BONUS: A Database Search
@@ -182,3 +182,5 @@ const attackers = characters.filter(character => {
 //findOne(HEROES, { squad: 'Justice League' }); // { id: 4, name: 'Superman', squad: 'Justice League' }
 
 //console.log(findOne(HEROES, { id: 1 }));
+
+//Edits
