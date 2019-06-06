@@ -64,3 +64,39 @@ function decode(word) {
   return decodedSentence.join().replace(/,/g, '');
 }
 decode('craft block argon meter bells brown croon droop');
+
+// Factory Functions with LOTR
+
+// Write a factory function called createCharacter (review in this assignment) that could appropriately build characters from LOTR that have the following attributes: (see drill for table)
+
+function createCharacter(name, nickname, race, origin, attack, defense) {
+  return {
+    name,
+    nickname,
+    race,
+    origin,
+    attack,
+    defense,
+    describe: function() {
+      return `${this.name} is a ${this.race} from ${this.origin}.`;
+      //console.log(${this.name});
+    },
+    evaluateFight: function(character) {
+      let x = this.attack - character.defense;
+      let y = character.attack - this.defense;
+      //console.log(character.defense);
+
+      if (x < 0) {
+        x = 0;
+      }
+      if (y < 0) {
+        y = 0;
+      }
+      console.log(y);
+      return `Your opponent takes ${x} damage and you receive ${y} damage.`;}
+
+  };
+}
+const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', '8', '5');
+const aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', '6', '8');
+console.log(legolas.evaluateFight(aragorn));
