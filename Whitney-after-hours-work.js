@@ -135,52 +135,74 @@ const hobbits = characters.filter(character => {
 const attackers = characters.filter(character => {
   return character.attack > 5;
 });
-console.log(attackers);
+//console.log(attackers);
 
 
 // BONUS: A Database Search
-// const HEROES = [
-//   { id: 1, name: 'Captain America', squad: 'Avengers' },
-//   { id: 2, name: 'Iron Man', squad: 'Avengers' },
-//   { id: 3, name: 'Spiderman', squad: 'Avengers' },
-//   { id: 4, name: 'Superman', squad: 'Justice League' },
-//   { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
-//   { id: 6, name: 'Aquaman', squad: 'Justice League' },
-//   { id: 7, name: 'Hulk', squad: 'Avengers' },
-// ];
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 7, name: 'Hulk', squad: 'Avengers' },
+];
 
-// // Write a function findOne() that takes in the following two arguments: (1) arr - array of Heroes objects to search through, (2) query - object with one or more key/value pairs that must exactly match the target Hero
-// // The first matching result should be returned even if multiple match.  If a match isn't found, return 'null'
-// function findOne(arr, query) {
-//   let found = false;
+// Write a function findOne() that takes in the following two arguments: (1) arr - array of Heroes objects to search through, (2) query - object with one or more key/value pairs that must exactly match the target Hero
+//  The first matching result should be returned even if multiple match.  If a match isn't found, return 'null'
 
-//   HEROES.forEach(hero => {
-//     if(found === false) {
-      
-//       let heroKeys = Object.keys(hero);
-//       let heroValues = Object.values(hero);
+function findOne(arr, query) {
+  //loop through the HEROES array to access hero objects
+  let results = null;
+  arr.forEach(item => {
+    let isFullMatch = true;
+    let hasMatched = false;
+    console.log('--------');
+    const queryParams = Object.keys(query);
+    queryParams.forEach(param => {
+      console.log(`Checking if ${item[param]} is equal to ${query[param]}`);
+      if(hasMatched === false) {
+        if(item[param] !== query[param]) {
+        console.log('FALSE!');
+          isFullMatch = false;
+        }}
+    });
+    if(isFullMatch === true) {
+      hasMatched = true;
+      results = item;
+    }
+  }); 
+  //console.log(results);
+  return results;
+}
 
-//      // console.log(heroValues);
-//       for(let query in heroKeys) {
-//         console.log(query);
-//         return query;
-//       }
-//       if(query.key === heroKeys) {
-//         found = true;
-//         return hero;
-//       }
-//     }
-//   });
-// }
+// TESTS
+//findOne(HEROES, { id: 1 }); // expect to return Captain America's object
+//findOne(HEROES, { id: 10 }); // expect 'null'
+//findOne(HEROES, { id: 2, name: 'Aquaman' }); // expect 'null'
+//findOne(HEROES, { id: 5, squad: 'Justice League' }); // expect Wonder Woman's object 
+findOne(HEROES, { squad: 'Justice League' }); // expect Superman's ojbect
 
 
-// Tests from drill page
-//findOne(HEROES, { id: 1 }); // expected: { id: 1, name: 'Captain America', squad: 'Avengers' }
-//findOne(HEROES, { id: 10 }); // null
-//findOne(HEROES, { id: 2, name: 'Aquaman' }); // null
-//findOne(HEROES, { id: 5, squad: 'Justice League' }); // { id: 5, name: 'Wonder Woman', squad: 'Justice League' }
-//findOne(HEROES, { squad: 'Justice League' }); // { id: 4, name: 'Superman', squad: 'Justice League' }
 
-//console.log(findOne(HEROES, { id: 1 }));
+//8a Bonus II: A Database Method
 
-//Edits
+const Database = {
+  store: {
+    heroes: [
+      { id: 1, name: 'Captain America', squad: 'Avengers' }, 
+      { id: 2, name: 'Iron Man', squad: 'Avengers' }, 
+      { id: 3, name: 'Spiderman', squad: 'Avengers' }, 
+      { id: 4, name: 'Superman', squad: 'Justice League'},
+      { id: 5, name: 'Wonder Woman', squad: 'Justice League' }, 
+      { id: 6, name: 'Aquaman', squad: 'Justice League' }, 
+      { id: 7, name: 'Hulk', squad: 'Avengers' },
+    ]
+  }
+};
+
+//Add a method to Database called findOne and have it behave the same as the findOne function above.  However, instead of referencing a HEROES array in the global scope, it should pull from the 'store' in the 'Database'.  HINT:  You'll want to use 'this' for this...
+
+//TEST
+// Database.findOne({ id: 2 }); // expect Iron Man object
