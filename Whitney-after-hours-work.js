@@ -152,6 +152,8 @@ const HEROES = [
 // Write a function findOne() that takes in the following two arguments: (1) arr - array of Heroes objects to search through, (2) query - object with one or more key/value pairs that must exactly match the target Hero
 //  The first matching result should be returned even if multiple match.  If a match isn't found, return 'null'
 
+// NEED TO ADD RETURN FIRST MATCH ONLY FUNCTIONALITY
+
 function findOne(arr, query) {
   //loop through the HEROES array to access hero objects
   let results = null;
@@ -162,14 +164,12 @@ function findOne(arr, query) {
     const queryParams = Object.keys(query);
     queryParams.forEach(param => {
       console.log(`Checking if ${item[param]} is equal to ${query[param]}`);
-      if(hasMatched === false) {
-        if(item[param] !== query[param]) {
-        console.log('FALSE!');
-          isFullMatch = false;
-        }}
+      if(item[param] !== query[param]) {
+        //console.log('FALSE!');
+        isFullMatch = false;
+      }
     });
     if(isFullMatch === true) {
-      hasMatched = true;
       results = item;
     }
   }); 
